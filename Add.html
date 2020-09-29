@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using CSS Grid</title>
+    
+	<style>
+        .dropbtn {
+  background-color: brown;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rosybrown;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: brown;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+		body{
+			color: #fff;
+			font-family: 'Nunito Semibold';
+			text-align: left;
+		}
+       
+        #content{
+            
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            grid-gap: 10px;
+            max-width: 1400px;
+            margin: 10 auto;
+            grid-template-areas:
+                "header header header header mnu"
+                "aside aside aside aside aside"
+                "aside aside aside aside aside"
+                "aside aside aside aside aside"
+                "aside aside aside aside aside"
+                "aside aside aside aside aside";
+              
+        }
+        aside{
+                display: grid;
+            }
+        nav{
+                display: none;
+            }
+        footer{
+                display: none;
+            }
+        main{
+                display: none;
+            }
+        
+        /* desktop grid */
+        @media screen and (min-width: 760px){
+    		#content{
+                
+                
+    			display: grid;
+    			grid-template-columns: repeat(5, 1fr);
+    			grid-auto-rows: minmax(100px, auto);
+    			grid-gap: 5px;
+    			max-width: 1600px;
+                max-height: 1200px;
+    			margin: 0 auto;
+                grid-template-areas:
+                    "header header header header header"
+                    "aside main main main main"
+                    "aside main main main main"
+                    "aside main main main main"
+                    "nav main main main main"
+                    "nav main main main main"
+                    "nav main main main main"
+                    "footer footer footer footer footer";
+    		}
+            aside{
+                display: grid;
+            }
+            mnu{
+                display: none;
+            }
+            nav{
+                display: grid;
+            }
+            footer{
+                display: grid;
+            }
+            header{
+                
+            }
+            main{
+                display: grid;
+            }
+            
+            
+            
+        }
+		#content > *{
+			background: DarkOliveGreen;
+			padding: 30px;
+		}
+        .oneline {
+        display: inline-block;
+        }
+        mnu{
+            grid-area: mnu;
+        }
+        header{
+            grid-area: header;
+            text-align: center;
+            font-weight: bold; 
+            font-size: 28px;
+            background: DarkOliveGreen
+        }
+        main{
+            grid-area: main;
+            background: DarkOliveGreen
+            
+        }
+        aside{
+            grid-area: aside;
+            background: DarkOliveGreen
+        }
+        nav{
+            grid-area: nav;
+            background: DarkOliveGreen
+        }
+        section{
+            grid-area: section;
+            background: DarkOliveGreen
+        }
+        footer{
+            grid-area: footer;
+            background: DarkOliveGreen !important;
+        }
+	</style>
+    
+</head>
+<body>
+
+	<div id="content">
+
+		<header >Omar Restaurant</header>
+        
+        <main><div class="recipes ">
+    <div class="card-panel recipe white row">
+      <div class="recipe-details">
+        <div class="recipe-title">Shawerma</div>
+        <div class="recipe-ingredients oneline">beef,lime, Garlic oil     </div> <em>&nbsp;</em> <div class="recipe-price oneline">$10</div>
+             
+      </div>
+      
+      <div class="recipe-delete">
+        <i>delete</i>
+      </div>
+    </div>
+  </div>
+       
+        
+        </main>
+        
+        <aside>
+           <form >
+      <h5>Add New Recipe</h5>
+
+      <div >
+          <label for="title">Recipe Title</label>
+        <br><input placeholder="" id="title" type="text" >
+        
+      </div>
+      <div >
+        <label for="ingredients">Ingredients</label> <br>
+                  <input placeholder="" id="ingredients" type="text" >
+
+      </div>
+                <div >
+        
+        <label for="price">Price</label> <br>
+                    <input placeholder="" id="price" type="text" >
+      </div>
+      <div >
+        <button >Add</button>
+      </div>
+            </form>
+            
+        </aside>
+        <nav>Adress: 1625 locust street denver, colorado. 80207.
+        Email:omahik79@gmail.com
+        </nav>
+        <footer>
+            Omar Restaurant is a casual, energetic, everyday restaurant located in the heart of downtown Denver, Colorado. 
+Known for our tapas and the town’s best outdoor dining, we’ve been offering exceptional food at a great value for over 10 years. </footer>
+        <mnu><div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">
+      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+</svg>
+            </button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="./home.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+      <a href="./add.html">Add</a>
+  </div>
+</div></mnu>
+
+	</div>
+    
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>
